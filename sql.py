@@ -20,6 +20,12 @@ with sq.connect("saper.db") as db:
         resault = cursor.fetchall()
         for i in resault:
             print(i)
+
+    def order(pole, deck = " "):
+        cursor.execute("""SELECT * FROM users ORDER BY {} {}""".format(pole, deck))
+        a = cursor.fetchall()
+        for i in a:
+            print(i)
     
     #add_user(0, "'Ihor'", "'male'", 21, 0)
     #add_user(1, "'Anton'", "'male'", 19, 500)
@@ -28,15 +34,18 @@ with sq.connect("saper.db") as db:
     #add_user(4, "'Sergei'", "'male'", 25, 1500)
     #add_user(5, "'Kate'", "'female'", 15, 0)
     #add_user(6, "'Slavik'", "'male'", 22, 300)
+
+    #order("old","DESC")
+    #show_db()
     
     #cursor.execute("SELECT name FROM users WHERE score > 100")#Выбор определенных данных с условием
     #a = cursor.fetchall()
     #print(a)
 
-    cursor.execute("""UPDATE users SET name = 'IHOR' WHERE name == 'Ihor' """)#Изменение данных в базе данных
-    cursor.execute("DELETE FROM users WHERE score = 300") #Удаление данных по условию
-
-    show_db()
-
+    #cursor.execute("""UPDATE users SET name = 'IHOR' WHERE name == 'Ihor' """)#Изменение данных в базе данных
+    #cursor.execute("DELETE FROM users WHERE score = 300") #Удаление данных по условию
     
+    
+
+   
 
